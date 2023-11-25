@@ -1,0 +1,31 @@
+*Helena Khalilieh 
+
+*Markov chain 
+
+*tweetsGenerator.c:the main and the code it self that does all the work, which gives us the first word then all of the sentences that will come after depends of the probability of each word 
+
+*How to compile the code in the terminal :gcc tweetsGenerator.c -o tweets
+                                           ./tweets
+                                           ./tweets 454545 30 "justdoit_tweets.txt" 100
+    - Also not to forget to put the argument inside the code it self which contains 4 variables: ערך seed, כמות הציוצים שנייצר , path (text),the number of the word we want to read from the file 
+      such as:tweetsGenerator 454545 30 “path-to-file\exmaple.txt” 100
+
+*The program we write will work as follows:
+1. We get Text corpus, a large text repository that contains many sentences.
+2. We will read the corpus and save the words given in it for the dictionary. Weight is given to each word.
+3. We will create sentences probabilistically. A first word for the sentence is selected and weights from step 2 are used to grill the following words in the sentence.
+
+* The functions that we have in the file:• int print_dict(LinkList* link_list) //return 0 and prints each item (node) of the dictionary
+                                         • void print_prob_list(WordStruct *word1)//return none and prints the items of the probability list of the WS
+                                         • int get_random_number (int max_number) //Get random number between 0 and max_number [0, max_number)
+                                         • Node *get_rand_node(LinkList *dict, int rand_num) //return the item (node) in the dictionary that in the index of rand_num
+                                         • WordStruct * get_first_random_word (LinkList * dictionary) //return WordStruct of the chosen word
+                                         • WordStruct * get_next_random_word (WordStruct * word_struct_ptr) //Choose randomly the next word.Return WordStruct of the chosen word
+                                         • int generate_sentence (LinkList * dictionary) //return Amount of words in printed sentence
+                                         • int add_word_to_probability_list (WordStruct * first_word, WordStruct * second_word)//Gets 2 WordStructs. If second_word in first_word's prob_list, update the existing probability value.
+                                         • Node *find_node_in_dictionary(LinkList *dictionary, char *word) //return the node if the word had found in the dictionary, NULL else.
+                                         • void fill_dictionary (FILE * fp, int words_to_read, LinkList * dictionary)
+                                         • void free_dictionary (LinkList * dictionary) //Free the given dictionary and all of it's content from memory.
+                                         • int check_input_validity(int argc, char *argv[]) // check number of arguments and check valid path file
+
+
